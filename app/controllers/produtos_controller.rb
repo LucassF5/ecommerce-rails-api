@@ -10,7 +10,7 @@ class ProdutosController < ApplicationController
     if @produto
       render json: @produto
     else
-      render json: @produto.errors, status: :unprocessable_entity
+      render json: { errors: @produto.errors }, status: :unprocessable_entity
     end
   end
 
@@ -19,7 +19,7 @@ class ProdutosController < ApplicationController
     if @produto.save
       render json: @produto, status: :created
     else
-      render json: @produto.errors, status: :unprocessable_entity
+      render json: { errors: @produto.errors }, status: :unprocessable_entity
     end
   end
 
